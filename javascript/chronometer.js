@@ -16,8 +16,9 @@ class Chronometer {
   getSeconds() {
     return this.currentTime % 60;
   }
-  twoDigitsNumber() {
-    // ... your code goes here
+  twoDigitsNumber(value) {
+  
+    return ''.concat(value).length < 2 ?  '0'.concat(value) : ''.concat(value);
   }
   stopClick() {
     // ... your code goes here
