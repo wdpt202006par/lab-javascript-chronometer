@@ -24,22 +24,10 @@ class Chronometer {
   }
   // getSeconds() = 9
 
-  twoDigitsNumber() {
-    //
-    let min = this.getMinutes();
-    // min = 1
-    let sec = this.getSeconds();
-    // sec = 9
-
-    if (min < 10) {
-      min = `0${min}`;
-    }
-
-    if (sec < 10) {
-      sec = `0${sec}`;
-    }
-
-    return `${min}:${sec}`;
+  twoDigitsNumber(number) {
+    if (number < 10) {
+      return `0${number}`;
+    } else return number;
   }
   stopClick() {
     // ... your code goes here
@@ -49,7 +37,11 @@ class Chronometer {
     // ... your code goes here
     this.currentTime = 0;
   }
-  splitClick() {
+  splitClick(minute, seconde) {
+    let min = this.getMinutes(minute);
+    // min = 1
+    let sec = this.getSeconds(seconde);
+    return `${this.twoDigitsNumber(min)}:${this.twoDigitsNumber(sec)}`;
     // ... your code goes here
   }
 }
