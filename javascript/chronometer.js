@@ -43,11 +43,18 @@ return (intMinute)
   }
   stopClick() {
     // ... your code goes here
+    clearInterval(this.intervalId);
   }
   resetClick() {
     // ... your code goes here
+    this.currentTime = 0;
+
   }
-  splitClick() {
+  splitClick(min, sec) {
     // ... your code goes here
+    let minutes = this.getMinutes(min);
+    let seconds = this.getSeconds(sec)
+    return `${this.twoDigitsNumber(minutes)}:${this.twoDigitsNumber(seconds)}`;
   }
 }
+
