@@ -21,12 +21,14 @@ class Chronometer {
     return ''.concat(value).length < 2 ?  '0'.concat(value) : ''.concat(value);
   }
   stopClick() {
-    // ... your code goes here
+    clearInterval(this.currentTime)
   }
   resetClick() {
-    // ... your code goes here
+    return this.currentTime = 0;
   }
-  splitClick() {
-    // ... your code goes here
+  splitClick(min, sec) {
+    let minutes = this.getMinutes(min); 
+    let seconds = this.getSeconds(sec);
+    return `${this.twoDigitsNumber(minutes)}:${this.twoDigitsNumber(seconds)}`
   }
 }
