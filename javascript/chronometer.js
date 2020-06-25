@@ -17,20 +17,30 @@ class Chronometer {
   }
 
   getSeconds() {
-    //115 = 55
+    //115 = 55 -> 60 + 55
     //15 = 15
-    return Math.floor(this.currentTime)
+    return Math.floor(this.currentTime % 60)
   }
-  twoDigitsNumber() {
-    // ... your code goes here
+
+  twoDigitsNumber(number) {
+    if (number < 10) {
+      return "0" + number;
+    } else {
+      number;
+    }
+
   }
   stopClick() {
-    // ... your code goes here
+    clearInterval(this.intervalId);
   }
+
   resetClick() {
-    // ... your code goes here
+    this.currentTime = 0;
   }
-  splitClick() {
-    // ... your code goes here
+
+  splitClick(min, sec) {
+    var minutes = this.getMinutes(min);
+    var seconds = this.getSeconds(sec);
+    return `${this.twoDigitsNumber(minutes)}:${this.twoDigitsNumber(seconds)}`;
   }
 }
