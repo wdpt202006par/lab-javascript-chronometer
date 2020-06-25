@@ -11,17 +11,15 @@ class Chronometer {
   }
 
   getMinutes() {
-    let minutes = 0;
-    // Pour chaque 60 secondes
-    // Ajoute +1 minute
-    if (this.currentTime%60 === 59) {
-      minutes += 1;
-    }
-    return minutes;
+    // 65 -> 1
+    // 150 -> 2
+    return Math.floor(this.currentTime / 60)
   }
 
   getSeconds() {
-    // ... your code goes here
+    //115 = 55
+    //15 = 15
+    return Math.floor(this.currentTime)
   }
   twoDigitsNumber() {
     // ... your code goes here
