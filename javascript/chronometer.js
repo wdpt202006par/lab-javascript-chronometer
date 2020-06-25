@@ -22,12 +22,24 @@ return (intMinute)
     var intSecond = Math.round(this.currentTime % 60);
     return (intSecond);
   }
-  twoDigitsNumber() {
+  twoDigitsNumber(number) {
     //if currentTime is 36 seconds, returns 00 min 36 seconds
     //if currentTime is 5 min and 43 sec, returns 05 min 43 sec
     // ... your code goes here
-    var digitNumber= this.getMinutes+ this.getSeconds;
-    return digitNumber; 
+    //var digitNumber= this.getMinutes+ this.getSeconds;
+    //return digitNumber; 
+    if (number <10 ) {
+      return "0" + number;
+    } else {
+      return number;
+    }
+
+    if (number.toString().length === 1) {
+      return `0${number}`
+    } else {
+      return number.toString();
+    }
+
   }
   stopClick() {
     // ... your code goes here
