@@ -3,19 +3,23 @@ class Chronometer {
     this.currentTime = 0;
     this.intervalId = 0;
   }
+
   startClick(callback) {
-    // let i = 1;
     const intervalId = setInterval(() => { // Use setInterval 
-      // console.log(Chronometer.currentTime);
       this.currentTime += 1; // faire + 1 sur currentTime
-      // if (stopClick) {
-      //   clearInterval(intervalId);
-      // }
     }, 1000);
   }
+
   getMinutes() {
-    // ... your code goes here
+    let minutes = 0;
+    // Pour chaque 60 secondes
+    // Ajoute +1 minute
+    if (this.currentTime%60 === 59) {
+      minutes += 1;
+    }
+    return minutes;
   }
+
   getSeconds() {
     // ... your code goes here
   }
