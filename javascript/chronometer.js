@@ -19,10 +19,15 @@ var intMinute = Math.floor(this.currentTime / 60);
 return (intMinute)
   }
   getSeconds() {
-    
+    var intSecond = Math.round(this.currentTime % 60);
+    return (intSecond);
   }
   twoDigitsNumber() {
+    //if currentTime is 36 seconds, returns 00 min 36 seconds
+    //if currentTime is 5 min and 43 sec, returns 05 min 43 sec
     // ... your code goes here
+    var digitNumber= this.getMinutes+ this.getSeconds;
+    return digitNumber; 
   }
   stopClick() {
     // ... your code goes here
