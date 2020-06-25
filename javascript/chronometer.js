@@ -14,18 +14,23 @@ class Chronometer {
     return Math.trunc(this.currentTime/60);
   }
   getSeconds() {
-    // ... your code goes here
+    return this.currentTime % 60; 
   }
-  twoDigitsNumber() {
-    // ... your code goes here
+  twoDigitsNumber(num) {
+    if (num < 10) {
+      return `0${num}`;
+    }
+    return `${num}`;
   }
   stopClick() {
-    // ... your code goes here
+    clearInterval();
   }
   resetClick() {
-    // ... your code goes here
+    this.currentTime =0;
   }
   splitClick() {
-    // ... your code goes here
+    let num1 = this.getMinutes();
+    let num2 = this.getSeconds();
+    return `${this.twoDigitsNumber(num1)}:${this.twoDigitsNumber(num2)}`;
   }
 }
