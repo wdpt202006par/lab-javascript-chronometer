@@ -16,15 +16,19 @@ let splits = document.getElementById('splits');
 
 function printTime() {
   //retourner les minutes et secondes => twoDigitsNumber
-  return Chronometer.twoDigitsNumber();
+  //return chronometer.twoDigitsNumber();
+  console.log('printTime', chronometer.twoDigitsNumber(chronometer.currentTime));
+  printMinutes();
 }
 
 function printMinutes() {
-  // ... your code goes here
+  //minDec.innerHTML = chronometer.twoDigitsNumber(chronometer.currentTime) ;
+ // minUni.innerHTML = chronometer.twoDigitsNumber(chronometer.currentTime) ;
 }
 
 function printSeconds() {
-  // ... your code goes here
+//secDec.innerHTML = chronometer.twoDigitsNumber(chronometer.currentTime);
+//secUni.innerHTML = chronometer.twoDigitsNumber(chronometer.currentTime);
 }
 
 // ==> BONUS
@@ -43,6 +47,7 @@ function clearSplits() {
 function setStopBtn() {
   btnLeft.setAttribute('class','btn stop');
   btnLeft.innerHTML='STOP';
+  chronometer.stopClick();
 }
 
 function setSplitBtn() {
@@ -55,6 +60,7 @@ function setStartBtn() {
   // changer la couleur: vert -> rouge (classe)
   btnLeft.setAttribute('class','btn start');
   btnLeft.innerHTML='START';
+  chronometer.startClick();
 }
 
 function setResetBtn() {

@@ -6,8 +6,8 @@ class Chronometer {
   startClick(callback) {
   
     var int = setInterval (() => {
-     this.currentTime++;
-     console.log(this.currentTime); 
+     this.currentTime++; 
+     printTime()
     },1000)
   }
   getMinutes() {
