@@ -26,7 +26,7 @@ class Chronometer {
     if (number < 10) {
       return "0" + number;
     } else {
-      number;
+      return number;
     }
 
   }

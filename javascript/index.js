@@ -20,12 +20,15 @@ let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
-function printTime() {
-  // ... your code goes here
+function printTime(text, time) {
+  setInterval(function () {
+    // zonetexte.innerHTML ("résultat de la fonction de callback")
+    text.innerHTML(time);
+  }, 1000)
 }
 
 function printMinutes() {
-  // ... your code goes here
+  // appeller twoDigitNumber
 }
 
 function printSeconds() {
@@ -46,29 +49,31 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeft.innerHTML = 'STOP';
+  btnLeft.className = 'btn stop';
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRight.innerHTML = 'SPLIT';
+  btnRight.className = 'btn split';
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeft.innerHTML = 'START';
+  btnLeft.className = 'btn start';
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRight.innerHTML = 'RESET';
+  btnRight.className = 'btn reset';
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   if (btnLeft.innerHTML === "START") {
-    btnLeft.innerHTML = 'STOP';
-    btnLeft.className = 'btn stop';
+    setStopBtn();
   } else {
-    btnLeft.innerHTML = 'START';
-    btnLeft.className = 'btn start';
+    setStartBtn();
   }
 });
 
@@ -76,10 +81,8 @@ btnLeft.addEventListener('click', () => {
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
   if (btnRight.innerHTML === "RESET") {
-    btnRight.innerHTML = 'SPLIT';
-    btnRight.className = 'btn split';
+    setSplitBtn();
   } else {
-    btnRight.innerHTML = 'RESET';
-    btnRight.className = 'btn reset';
+    setResetBtn();
   }
 });
