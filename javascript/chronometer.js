@@ -30,10 +30,13 @@ class Chronometer {
     clearInterval(this.intervalId);
   }
   resetClick() {
-    
+    this.currentTime=0
 
   }
   splitClick() {
     // ... your code goes here
+    let munites= this.twoDigitsNumber(this.getMinutes());
+    let seconds= this.twoDigitsNumber(this.getSeconds());
+    return `${munites}:${seconds}`
   }
 }
