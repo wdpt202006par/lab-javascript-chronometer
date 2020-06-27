@@ -38,11 +38,12 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  var split = chronometer.splitClick();
+  document.querySelector('ol').innerHTML =  <li>`${split}`</li>
 }
 
 function clearSplits() {
-  // ... your code goes here
+ 
 }
 
 function setStopBtn() {
