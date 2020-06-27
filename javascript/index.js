@@ -48,7 +48,12 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  
+
+  const saveSplit = document.getElementById('splits');
+  var newLi = document.createElement('li');
+  newLi.innerHTML = nameToChange;
+  saveSplit.appendChild(newLi);
 }
 
 function clearSplits() {
