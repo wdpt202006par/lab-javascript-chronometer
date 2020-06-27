@@ -13,12 +13,20 @@ let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
+
+
 function printTime() {
-  // ... your code goes here
+  setInterval(function () {
+    printMinutes();
+    printSeconds();
+  }, 1000);
 }
 
 function printMinutes() {
-  // ... your code goes here
+  var minutes = chronometer.getMinutes();
+  var twoDigitsMin = chronometer.twoDigitsNumber(minutes);
+  twoDigitsMin.innerHTML = twoDigitsMin[0];
+  twoDigitsMin.innerHTML = twoDigitsMin[1];
 }
 
 function printSeconds() {
@@ -39,24 +47,32 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeft.classList.toggle("stop");
+  btnLeft.innerHTML = "Stop";
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRight.classList.toggle("Split");
+  btnRight.innerHTML = "Split";
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeft.classList.remove("stop");
+  btnLeft.innerHTML = "Start";
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRight.classList.remove("Split");
+  btnRight.innerHTML = "Reset";
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeft.className === "btn start") {
+    setStopBtn();
+  } else {
+    setStartBtn();
+  }
 });
 
 // Reset/Split Button
