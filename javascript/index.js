@@ -20,12 +20,8 @@ let splits = document.getElementById('splits');
 // };
 
 function printTime() {
-  //setInterval(function () {
-  // zonetexte.innerHTML ("résultat de la fonction de callback")
-  // text.innerHTML(time);
   printMinutes();
   printSeconds();
-  //}, 1000)
 }
 
 function printMinutes() {
@@ -48,11 +44,16 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  var newLi = document.createElement('li');
+  var olParent = document.getElementById("splits");
+  var parentDiv = olParent.parentNode
+  parentDiv.insertBefore(newLi, olParent);
+  newLi.innerHTML = chronometer.splitClick(printMinutes(), printSeconds());
 }
 
 function clearSplits() {
-  // ... your code goes here
+  // var liContent = document.body.querySelectorAll('#splits li');
+  // // liContent.innerHTML = '';
 }
 
 function setStopBtn() {
@@ -79,9 +80,11 @@ function setResetBtn() {
 btnLeft.addEventListener('click', () => {
   if (btnLeft.innerHTML === "START") {
     setStopBtn();
+    setSplitBtn();
     chronometer.startClick();
   } else {
     setStartBtn();
+    setResetBtn();
     chronometer.stopClick();
   }
 });
@@ -89,9 +92,10 @@ btnLeft.addEventListener('click', () => {
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  if (btnRight.innerHTML === "RESET") {
-    setSplitBtn();
+  if (btnRight.innerHTML === "SPLIT") {
+    printSplit();
   } else {
-    setResetBtn();
+    chronometer.resetClick();
+    clearSplits();
   }
 });
