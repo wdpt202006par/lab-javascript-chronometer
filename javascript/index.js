@@ -13,27 +13,23 @@ let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
-
-
 function printTime() {
-  setInterval(function () {
-    printMinutes();
-    printSeconds();
-  }, 1000);
+  printSeconds();  
+  printMinutes();
 }
 
 function printMinutes() {
   var minutes = chronometer.getMinutes();
   var twoDigitsMin = chronometer.twoDigitsNumber(minutes);
-  twoDigitsMin.innerHTML = twoDigitsMin[0];
-  twoDigitsMin.innerHTML = twoDigitsMin[1];
+  minDec.innerHTML = twoDigitsMin[0];
+  minUni.innerHTML = twoDigitsMin[1];
 }
 
 function printSeconds() {
   var seconds = chronometer.getSeconds();
   var twoDigitsSec = chronometer.twoDigitsNumber(seconds);
-  twoDigitsSec.innerHTML = twoDigitsSec[0];
-  twoDigitsSec.innerHTML = twoDigitsSec[1];
+  secDec.innerHTML = twoDigitsSec[0];
+  secUni.innerHTML = twoDigitsSec[1];
 }
 
 // ==> BONUS
@@ -50,7 +46,8 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-  btnLeft.classList.toggle("stop");
+  //btnLeft.classList.toggle("stop");
+  btnLeft.setAttribute("class", "btn stop");
   btnLeft.innerHTML = "STOP";
 }
 
@@ -60,7 +57,8 @@ function setSplitBtn() {
 }
 
 function setStartBtn() {
-  btnLeft.classList.remove("stop");
+  //btnLeft.classList.remove("stop");
+  btnLeft.setAttribute("class", "btn start");
   btnLeft.innerHTML = "START";
 }
 
@@ -72,16 +70,16 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   if (btnLeft.className === "btn start") {
+    chronometer.startClick(printTime);
     setStopBtn();
-    //chronometer.startClick();
-    //printTime();
   } else {
     setStartBtn();
+    chronometer.stopClick(printTime);
   }
 });
 
-// APPUIE START > lance le chrono, imprime minute et seconds, STOP
-// APPUIE STOP > arrête de chrono, imprime minute et seconds, START
+// APPUIE START > lance le chrono, imprime minute et seconds, affiche STOP
+// APPUIE STOP > arrête de chrono, imprime minute et seconds, affiche START
 
 
 
