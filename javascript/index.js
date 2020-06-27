@@ -56,10 +56,16 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+ // le btnLeft vienbt d'etre cliqué
+ // START -> STOP
+ // changer la classe du btnLeft
+ // var newBtnLeft = document.querySelector('#btnLeft');
+ btnLeft.innerHTML = 'STOP';
+ btnLeft.className = 'btn stop'
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+  btnRight.innerHTML = 'SPLIT';
+  btnRight.className = 'btn split'
 });
