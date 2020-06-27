@@ -19,7 +19,9 @@ function printTime() {
 }
 
 function printMinutes() {
-  
+  var sec= chronometer.twoDigitsNumber(chronometer.getMinutes());
+  minDec.innerHTML= sec[0];
+  minUni.innerHTML= sec[1];
 }
 
 function printSeconds() {
