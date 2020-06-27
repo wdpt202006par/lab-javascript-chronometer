@@ -57,9 +57,20 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   // ... your code goes here
+  if(chronometer.currentTime === 0){
+    let btnLeft = document.querySelector("#btnLeft")
+    btnLeft.innerHTML = "STOP"
+    btnLeft.className = "btn stop"
+  }  
+
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
   // ... your code goes here
+  if(chronometer.currentTime === 0){
+    let btnRight = document.querySelector("#btnRight")
+    btnRight.innerHTML = "SPLIT"
+    btnRight.className = "btn split"
+  }
 });
