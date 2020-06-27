@@ -4,6 +4,7 @@ const chronometer = new Chronometer();
 const btnLeft = document.getElementById('btnLeft');
 const btnRight = document.getElementById('btnRight');
 
+
 // get the DOM elements that will serve us to display the time:
 let minDec = document.getElementById('minDec');
 let minUni = document.getElementById('minUni');
@@ -14,7 +15,8 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+  //retourner les minutes et secondes => twoDigitsNumber
+  return Chronometer.twoDigitsNumber();
 }
 
 function printMinutes() {
@@ -39,27 +41,43 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeft.setAttribute('class','btn stop');
+  btnLeft.innerHTML='STOP';
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRight.setAttribute('class',`btn reset` );
+  btnRight.innerHTML='RESET';
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  // START => STOP
+  // changer la couleur: vert -> rouge (classe)
+  btnLeft.setAttribute('class','btn start');
+  btnLeft.innerHTML='START';
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRight.setAttribute('class',`btn split`);
+  btnRight.innerHTML='SPLIT';
 }
 
 // Start/Stop Button
+
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeft.className === `btn start`){
+    setStopBtn();
+    printTime();
+  } else {
+    setStartBtn();
+  }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRight.className === `btn reset`){
+    setResetBtn();
+  } else {
+    setSplitBtn();
+  }
 });
