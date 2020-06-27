@@ -1,5 +1,12 @@
 const chronometer = new Chronometer();
 
+if (btnLeft.querySelector('.start')) {
+  chronometer.startClick(callback);
+} else {
+  chronometer.stopClick();
+};
+
+
 // get the buttons:
 const btnLeft = document.getElementById('btnLeft');
 const btnRight = document.getElementById('btnRight');
