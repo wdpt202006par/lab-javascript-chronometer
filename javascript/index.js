@@ -1,12 +1,5 @@
 const chronometer = new Chronometer();
 
-if (btnLeft.querySelector('.start')) {
-  chronometer.startClick(callback);
-} else {
-  chronometer.stopClick();
-};
-
-
 // get the buttons:
 const btnLeft = document.getElementById('btnLeft');
 const btnRight = document.getElementById('btnRight');
@@ -20,19 +13,33 @@ let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
-function printTime(text, time) {
-  setInterval(function () {
-    // zonetexte.innerHTML ("résultat de la fonction de callback")
-    text.innerHTML(time);
-  }, 1000)
+// if (btnLeft.querySelector('.start')) {
+//   chronometer.startClick(callback);
+// } else {
+//   chronometer.stopClick();
+// };
+
+function printTime() {
+  //setInterval(function () {
+  // zonetexte.innerHTML ("résultat de la fonction de callback")
+  // text.innerHTML(time);
+  printMinutes();
+  printSeconds();
+  //}, 1000)
 }
 
 function printMinutes() {
-  // appeller twoDigitNumber
+  // appeller chronometer.twoDigitNumber(chronometer.getMinutes()) pour récupérer les minutes ?
+  let minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+  minDec.innerHTML = minutes[0];
+  minUni.innerHTML = minutes[1];
 }
 
 function printSeconds() {
-  // ... your code goes here
+  // appeler chronometer.twoDigitNumber(chronometer.getSeconds()) pour récupérer les secondes ?
+  let seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+  secDec.innerHTML = seconds[0];
+  secUni.innerHTML = seconds[1];
 }
 
 // ==> BONUS
@@ -72,8 +79,10 @@ function setResetBtn() {
 btnLeft.addEventListener('click', () => {
   if (btnLeft.innerHTML === "START") {
     setStopBtn();
+    chronometer.startClick();
   } else {
     setStartBtn();
+    chronometer.stopClick();
   }
 });
 

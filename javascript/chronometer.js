@@ -7,6 +7,7 @@ class Chronometer {
   startClick(callback) {
     const intervalId = setInterval(() => { // Use setInterval 
       this.currentTime += 1; // faire + 1 sur currentTime
+      printTime()
     }, 1000);
   }
 
@@ -26,7 +27,7 @@ class Chronometer {
     if (number < 10) {
       return "0" + number;
     } else {
-      return number;
+      return number.toString();
     }
 
   }
