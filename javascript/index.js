@@ -30,7 +30,10 @@ function printMinutes() {
 }
 
 function printSeconds() {
-  // ... your code goes here
+  var seconds = chronometer.getSeconds();
+  var twoDigitsSec = chronometer.twoDigitsNumber(seconds);
+  twoDigitsSec.innerHTML = twoDigitsSec[0];
+  twoDigitsSec.innerHTML = twoDigitsSec[1];
 }
 
 // ==> BONUS
@@ -48,34 +51,45 @@ function clearSplits() {
 
 function setStopBtn() {
   btnLeft.classList.toggle("stop");
-  btnLeft.innerHTML = "Stop";
+  btnLeft.innerHTML = "STOP";
 }
 
 function setSplitBtn() {
   btnRight.classList.toggle("Split");
-  btnRight.innerHTML = "Split";
+  btnRight.innerHTML = "SPLIT";
 }
 
 function setStartBtn() {
   btnLeft.classList.remove("stop");
-  btnLeft.innerHTML = "Start";
+  btnLeft.innerHTML = "START";
 }
 
 function setResetBtn() {
   btnRight.classList.remove("Split");
-  btnRight.innerHTML = "Reset";
+  btnRight.innerHTML = "RESET";
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   if (btnLeft.className === "btn start") {
     setStopBtn();
+    //chronometer.startClick();
+    //printTime();
   } else {
     setStartBtn();
   }
 });
 
+// APPUIE START > lance le chrono, imprime minute et seconds, STOP
+// APPUIE STOP > arrête de chrono, imprime minute et seconds, START
+
+
+
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRight.className === "btn reset") {
+    setSplitBtn();
+  } else {
+    setResetBtn();
+  }
 });
