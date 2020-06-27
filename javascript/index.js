@@ -56,7 +56,9 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+  let BtnStop = document.getElementById('btnLeft');
+  BtnStop.innerHTML = 'STOP';
+  BtnStop.className = 'btn stop';
 });
 
 // Reset/Split Button
