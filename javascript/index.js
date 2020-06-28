@@ -38,28 +38,28 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // create a new <li> in the ol element
-  var newLi = document.createElement('li');
-  splits.appendChild(newLi);
-  // print the current time in the li
-  var minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
-  var seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
-  chronometer.splitClick (minutes, seconds);
-  newLi.innerHTML = `${minutes} : ${seconds}`;
+    // create a new <li> in the ol element
+    var newLi = document.createElement('li');
+    splits.appendChild(newLi);
+    // print the current time in the li
+    var minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+    var seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+    chronometer.splitClick (minutes, seconds);
+    newLi.innerHTML = `${minutes} : ${seconds}`;
+  
+  }
 
-}
-
-function clearSplits() {
-  let splits = document.getElementById('splits')
-  let splitsLi = document.querySelectorAll("li")
-  splits.removeChild(splitsLi);
-
-/* Pour l'instant, supprime un par un, 
-et non tous les li en même temps. 
-J'ai essayé avec querySelectorAll sur splitsLi 
-mais j'ai une erreur dans ma console "pas de type node".  
-*/
-}
+  function clearSplits() {
+    let splits = document.getElementById('splits')
+    let splitsLi = document.querySelectorAll("li")
+    splits.removeChild(splitsLi);
+  
+  /* Pour l'instant, supprime un par un, 
+  et non tous les li en même temps. 
+  J'ai essayé avec querySelectorAll sur splitsLi 
+  mais j'ai une erreur dans ma console "pas de type node".  
+  */
+  }
 
 
 
