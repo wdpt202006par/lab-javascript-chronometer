@@ -38,12 +38,30 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  // create a new <li> in the ol element
+  var newLi = document.createElement('li');
+  splits.appendChild(newLi);
+  // print the current time in the li
+  var minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+  var seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+  chronometer.splitClick (minutes, seconds);
+  newLi.innerHTML = `${minutes} : ${seconds}`;
+
 }
 
 function clearSplits() {
-  // ... your code goes here
+  let splits = document.getElementById('splits')
+  let splitsLi = document.querySelectorAll("li")
+  splits.removeChild(splitsLi);
+
+/* Pour l'instant, supprime un par un, 
+et non tous les li en même temps. 
+J'ai essayé avec querySelectorAll sur splitsLi 
+mais j'ai une erreur dans ma console "pas de type node".  
+*/
 }
+
+
 
 function setStopBtn() {
   //btnLeft.classList.toggle("stop");
@@ -72,22 +90,21 @@ btnLeft.addEventListener('click', () => {
   if (btnLeft.className === "btn start") {
     chronometer.startClick(printTime);
     setStopBtn();
+    setSplitBtn();
   } else {
     setStartBtn();
     chronometer.stopClick(printTime);
+    setResetBtn();
   }
 });
-
-// APPUIE START > lance le chrono, imprime minute et seconds, affiche STOP
-// APPUIE STOP > arrête de chrono, imprime minute et seconds, affiche START
-
-
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
   if (btnRight.className === "btn reset") {
-    setSplitBtn();
+    clearSplits();
+    chronometer.resetClick;
   } else {
-    setResetBtn();
+    printSplit();
   }
 });
+
