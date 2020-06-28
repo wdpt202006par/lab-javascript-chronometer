@@ -14,15 +14,22 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+  printSeconds();  
+  printMinutes();
 }
 
 function printMinutes() {
-  // ... your code goes here
+  var minutes = chronometer.getMinutes();
+  var twoDigitsMin = chronometer.twoDigitsNumber(minutes);
+  minDec.innerHTML = twoDigitsMin[0];
+  minUni.innerHTML = twoDigitsMin[1];
 }
 
 function printSeconds() {
-  // ... your code goes here
+  var seconds = chronometer.getSeconds();
+  var twoDigitsSec = chronometer.twoDigitsNumber(seconds);
+  secDec.innerHTML = twoDigitsSec[0];
+  secUni.innerHTML = twoDigitsSec[1];
 }
 
 // ==> BONUS
@@ -31,35 +38,73 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
-}
+    // create a new <li> in the ol element
+    var newLi = document.createElement('li');
+    splits.appendChild(newLi);
+    // print the current time in the li
+    var minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+    var seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+    chronometer.splitClick (minutes, seconds);
+    newLi.innerHTML = `${minutes} : ${seconds}`;
+  
+  }
 
-function clearSplits() {
-  // ... your code goes here
-}
+  function clearSplits() {
+    let splits = document.getElementById('splits')
+    let splitsLi = document.querySelectorAll("li")
+    splits.removeChild(splitsLi);
+  
+  /* Pour l'instant, supprime un par un, 
+  et non tous les li en même temps. 
+  J'ai essayé avec querySelectorAll sur splitsLi 
+  mais j'ai une erreur dans ma console "pas de type node".  
+  */
+  }
+
+
 
 function setStopBtn() {
-  // ... your code goes here
+  //btnLeft.classList.toggle("stop");
+  btnLeft.setAttribute("class", "btn stop");
+  btnLeft.innerHTML = "STOP";
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRight.classList.toggle("Split");
+  btnRight.innerHTML = "SPLIT";
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  //btnLeft.classList.remove("stop");
+  btnLeft.setAttribute("class", "btn start");
+  btnLeft.innerHTML = "START";
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRight.classList.remove("Split");
+  btnRight.innerHTML = "RESET";
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeft.className === "btn start") {
+    chronometer.startClick(printTime);
+    setStopBtn();
+    setSplitBtn();
+  } else {
+    setStartBtn();
+    chronometer.stopClick(printTime);
+    setResetBtn();
+  }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRight.className === "btn reset") {
+    clearSplits();
+    chronometer.resetClick;
+  } else {
+    printSplit();
+  }
 });
+
