@@ -19,9 +19,9 @@ function printTime() {
 }
 
 function printMinutes() {
-  var sec= chronometer.twoDigitsNumber(chronometer.getMinutes());
-  minDec.innerHTML= sec[0];
-  minUni.innerHTML= sec[1];
+  var min= chronometer.twoDigitsNumber(chronometer.getMinutes());
+  minDec.innerHTML= min[0];
+  minUni.innerHTML= min[1];
 }
 
 function printSeconds() {
@@ -31,8 +31,6 @@ function printSeconds() {
   var sec= chronometer.twoDigitsNumber(chronometer.getSeconds());
   secDec.innerHTML= sec[0];
   secUni.innerHTML= sec[1];
-  
-
 }
 
 // ==> BONUS
@@ -53,7 +51,6 @@ function setStopBtn() {
 }
 
 function setSplitBtn() {
-  // ... your code goes here
 }
 
 function setStartBtn() {
@@ -70,13 +67,11 @@ btnLeft.addEventListener('click', () => {
  if(btnLeft.innerHTML === 'START'){
   btnLeft.innerHTML = 'STOP';
   btnLeft.className = 'btn stop';
-  chronometer.startClick(printTime);
-  
+  chronometer.startClick(printTime); 
  } else {
   btnLeft.innerHTML = 'START';
   btnLeft.className = 'btn start';
   chronometer.stopClick();
-  
  }
 });
 
@@ -87,7 +82,7 @@ btnRight.addEventListener('click', () => {
     btnRight.innerHTML = 'RESET';
     btnRight.className = 'btn reset';
  } else {
-  btnRight.innerHTML = 'SPLIT';
-  btnRight.className = 'btn split';
+    btnRight.innerHTML = 'SPLIT';
+    btnRight.className = 'btn split';
  }
 });
