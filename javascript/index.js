@@ -11,13 +11,13 @@ const btnRight = document.getElementById('btnRight');
 // get the DOM elements that will serve us to display the time:
 
 
-let milDec = document.getElementById('milDec');
-let milUni = document.getElementById('milUni');
+
 let splits = document.getElementById('splits');
 
 function printTime() {
-    let minutes = printMinutes();
-    let secondes = printSeconds(); 
+    printMinutes();
+    printSeconds();
+    printMilliseconds();
 }
 
 function printMinutes() {
@@ -52,7 +52,16 @@ function printSeconds() {
 
 // ==> BONUS
 function printMilliseconds() {
-  // ... your code goes here
+  let milDec = document.getElementById('milDec');
+  let milUni = document.getElementById('milUni');
+  let millis = chronometer.getMilliseconds();
+  let millisAsString = chronometer.twoDigitsNumber(millis);
+
+  let dec = millisAsString.substring(0,1);
+  let uni = millisAsString.substring(1,2);
+
+  milDec.textContent = dec;
+  milUni.textContent = uni;
 }
 
 function printSplit() {
@@ -63,7 +72,7 @@ function printSplit() {
 }
 
 function clearSplits() {
-  chronometer.currentTime = 0;
+  chronometer.currentTimeInMillis = 0;
   printTime();
   let li = document.getElementById('splits');
   li.innerHTML = "";
