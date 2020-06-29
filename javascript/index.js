@@ -63,7 +63,10 @@ function printSplit() {
 }
 
 function clearSplits() {
-  // ... your code goes here
+  chronometer.currentTime = 0;
+  printTime();
+  let li = document.getElementById('splits');
+  li.innerHTML = "";
 }
 
 function setStopBtn() {
@@ -104,6 +107,7 @@ btnLeft.addEventListener('click', () => {
 btnRight.addEventListener('click', () => {
   if(btnRight.className === 'btn reset') {
     chronometer.resetClick();
+    clearSplits();
   }else {
     chronometer.splitClick();
     printSplit();
