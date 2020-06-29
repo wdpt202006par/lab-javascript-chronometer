@@ -8,31 +8,45 @@ const btnRight = document.getElementById('btnRight');
 
 
 
-
-
-
-
-
-
 // get the DOM elements that will serve us to display the time:
-let minDec = document.getElementById('minDec');
-let minUni = document.getElementById('minUni');
-let secDec = document.getElementById('secDec');
-let secUni = document.getElementById('secUni');
+
+
 let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
-function printTime(secDec, secUni) {
- return printMinutes(minDec, minUni) + printSeconds(secDec, secUni);
+function printTime() {
+  let minutes = printMinutes();
+  let secondes = printSeconds(); 
 }
 
-function printMinutes(minDec, minUni) {
-  chronometer.getMinutes(minDec, minUni);
+function printMinutes() {
+  let minDec = document.getElementById('minDec');
+  let minUni = document.getElementById('minUni');
+  let minutes = chronometer.getMinutes();
+  let minutesAsString = chronometer.twoDigitsNumber(minutes); // "05"
+
+  let dec = minutesAsString.substring(0,1); // "0"
+  let uni = minutesAsString.substring(1,2); // "5"
+
+  minDec.textContent = dec; // Pour afficher sur ma page web
+  minUni.textContent = uni;
+
+  
 }
 
-function printSeconds(secDec, secUni) {
-  chronometer.getSeconds(secDec, secUni);
+function printSeconds() {
+  let secDec = document.getElementById('secDec');
+  let secUni = document.getElementById('secUni');
+  let seconds = chronometer.getSeconds();
+  let secondsAsString = chronometer.twoDigitsNumber(seconds); // "05"
+  
+  
+  let dec = secondsAsString.substring(0,1); // "0"
+  let uni = secondsAsString.substring(1,2); // "5"
+
+  secDec.textContent = dec; // Pour afficher sur ma page web
+  secUni.textContent = uni;
   
 }
 

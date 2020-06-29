@@ -23,11 +23,10 @@ class Chronometer {
 
   twoDigitsNumber(deuxDigits) {
       if(deuxDigits < 10) {
-        return '0'+deuxDigits;
+        return '0'+ deuxDigits;
       } else {
-        return deuxDigits;
+        return deuxDigits.toString();
       }
-
   }
 
 
