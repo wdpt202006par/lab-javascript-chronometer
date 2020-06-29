@@ -4,7 +4,7 @@ class Chronometer {
     this.intervalId = 0;
   }
   startClick() {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.currentTime +=1;
       printTime()
     }, 1000);
@@ -33,6 +33,7 @@ class Chronometer {
   stopClick() {
     clearInterval(this.intervalId);
   }
+
   resetClick() {
     this.currentTime = 0;
   }
