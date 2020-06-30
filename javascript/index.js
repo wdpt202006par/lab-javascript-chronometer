@@ -1,4 +1,6 @@
 const chronometer = new Chronometer();
+console.log("CURRENT TIME")
+console.log(chronometer.currentTime)
 
 // get the buttons:
 const btnLeft = document.getElementById("btnLeft");
@@ -15,15 +17,15 @@ let splits = document.getElementById("splits");
 
 function printTime() {
   let min = chronometer.getMinutes();
-  let sec = chronometre.getSeconds();
+  let sec = chronometer.getSeconds();
 
-  let minString = chronometre.twoDigitsNumber(min);
-  let secString = chronometre.twoDigitsNumber(sec);
+  let minString = chronometer.twoDigitsNumber(min);
+  let secString = chronometer.twoDigitsNumber(sec);
   // ... your code goes here
 }
 function printMinutes() {
   let min = chronometer.getMinutes();
-  let minString = chronometre.twoDigitsNumber(min);
+  let minString = chronometer.twoDigitsNumber(min);
   let minHTML = document.querySelector("#minDec");
   minHTML.innerHTML = minString;
 
@@ -67,28 +69,28 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener("click", () => {
   // ... your code goes here
+  let btnLeft = document.querySelector("#btnLeft");
   if (chronometer.currentTime === 0) {
-    let btnLeft = document.querySelector("#btnLeft");
     btnLeft.innerHTML = "STOP";
     btnLeft.className = "btn stop";
-    chronometre.startClick();
-  } else {
-    let btnLeft = document.querySelector("#btnLeft");
+    chronometer.startClick();
+  } else if (btnLeft.innerHTML === "STOP") {
     btnLeft.innerHTML = "START";
     btnLeft.className = "btn start";
-    chronometre.stopClick();
+    chronometer.stopClick();
+    console.log(chronometer.currentTime)
+    chronometre.stopClick()
   }
 });
 
 // Reset/Split Button
 btnRight.addEventListener("click", () => {
   // ... your code goes here
+  let btnRight = document.querySelector("#btnRight");
   if (chronometer.currentTime === 0) {
-    let btnRight = document.querySelector("#btnRight");
     btnRight.innerHTML = "SPLIT";
     btnRight.className = "btn split";
   } else {
-    let btnRight = document.querySelector("#btnRight");
     btnRight.innerHTML = "RESET";
     btnRight.className = "btn reset";
   }
